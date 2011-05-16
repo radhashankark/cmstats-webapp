@@ -7,5 +7,7 @@ handlers:
 - url: /get/stats
   script: getstats.py
   login: admin
+- url: /stats/*
+  script: stats.py
 - url: /.*
   script: cmstats.py

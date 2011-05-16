@@ -13,7 +13,7 @@ result = urlfetch.fetch(url)
 contentbyline = result.content.split("\n")
 wantedline = "Not Found"
 for line in contentbyline:
-    if line == "<td><b>TOTAL</b></td>":
+    if str(line).contains("<td><b>TOTAL</b></td>"):
         wantedline = contentbyline.next()
 
 class Snapshot(db.Model):

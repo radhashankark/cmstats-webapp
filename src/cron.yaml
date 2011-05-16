@@ -1,5 +1,5 @@
 cron:
 - description: Test job every 5 minutes
   url: /get/stats
-  schedule: every 5 minutes
+  schedule: every 5 minutes from 00:00 to 23:59
   timezone: Chicago/CST
