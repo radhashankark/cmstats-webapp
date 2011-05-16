@@ -10,6 +10,11 @@ import datetime
 
 url = "http://stats.cyanogenmod.com"
 result = urlfetch.fetch(url)
+contentbyline = result.content.split("\n")
+wantedline = "Not Found"
+for line in contentbyline:
+    if line == "<td><b>TOTAL</b></td>":
+        wantedline = contentbyline.next()
 
 class Snapshot(db.Model):
     time = db.StringProperty(required=True)
@@ -23,7 +28,8 @@ class GetStats(webapp.RequestHandler):
     def get(self):
         self.response.headers['content-type'] = 'text/plain'
         self.response.out.write("Snapshot recorded at " + curtime + "\n")
-        self.response.out.write(result.content)
+        self.response.out.write("Lines in content : " + str(len(contentbyline)) + "\n")
+        self.response.out.write(wantedline)
 
 app = webapp.WSGIApplication([('/get/stats', GetStats)], debug = True)
 
