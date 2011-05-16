@@ -1,0 +1,5 @@
+cron:
+- description: Test job every 5 minutes
+  url: /get/stats
+  schedule: every 5 minutes
+  timezone: Chicago/CST
