@@ -1,4 +1,4 @@
-application: cmstats
+application: yasapps-cmstats
 version: 1
 runtime: python
 api_version: 1

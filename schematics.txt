@@ -1,0 +1,16 @@
+Rough schematics for cmstats project
+
+/get/stats - Fetch from cmstats, comb through them and put them in the Data Store
+
+/stats/?
+	device - Name of the device. Since it is unique, you get the one stat anyway. If missing, just send total installs
+	time - The time from where the latest set of stats is returned. If missing, assume current time and send latest stats
+		
+/stats/download - Download a full set of stats, in XML format
+
+DB 
+	Snapshot - Set of stats every 5 minutes
+		Time
+		Type
+		DeviceName
+		InstallCount
